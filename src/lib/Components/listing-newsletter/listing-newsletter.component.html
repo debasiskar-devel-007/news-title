@@ -1,0 +1,24 @@
+<mat-card *ngIf="loader==true">
+  <mat-spinner class="spinner"></mat-spinner>
+</mat-card>
+
+
+
+
+<!-- ------------------------lib listing being called------------------------ -->
+<mat-card *ngIf="loader==false">
+  <lib-listing class="formfilterdiv"
+      *ngIf="newsLetterListConfig.datasource !=null && newsLetterListConfig.datasource.length > 0"
+      [datasource]="newsLetterListConfig.datasource" [skip]="newsLetterListConfig.listArray_skip"
+      [modify_header_array]="newsLetterListConfig.listArray_modify_header" [sourcedata]="newsLetterListConfig.tableName"
+      [statusarr]="newsLetterListConfig.statusarr" [jwttoken]="newsLetterListConfig.jwtToken"
+      [apiurl]="newsLetterListConfig.apiUrl" [editroute]="newsLetterListConfig.editUrl"
+      [deleteendpoint]="newsLetterListConfig.deleteEndPoint"
+      [date_search_source]="newsLetterListConfig.view"
+     [date_search_endpoint]="newsLetterListConfig.listEndPoint"
+     [search_settings]="newsLetterListConfig.search_settings">
+  </lib-listing>
+<!-- ----------------------------------------------------------------------------->
+
+  <h2 *ngIf="newsLetterListConfig.datasource.length == 0">No record found.</h2>
+</mat-card>

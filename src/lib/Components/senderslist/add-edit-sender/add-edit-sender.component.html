@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">{{ header_name }}</h2>
+  </mat-toolbar>
+  <span class="formspan">
+    <mat-card-content class="example-container">
+      <form autocomplete="off" [formGroup]="senderForm">
+        <!-- Senders name -->
+        <mat-form-field>
+          <mat-label>Sender's Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+
+        <!-- Sender's email  -->
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+
+        <!-- Button  -->
+        <button type="submit" class="submitbtn" class="submitbtn" mat-raised-button color="primary"
+          (click)="onSubmit()">{{buttonText}}</button>
+        <button type="reset" class="submitbtn" class="submitbtn" mat-raised-button color="primary">RESET</button>
+
+      </form>
+    </mat-card-content>
+  </span>
+</mat-card>

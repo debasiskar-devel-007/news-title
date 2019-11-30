@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">{{ header_name }}</h2>
+  </mat-toolbar>
+  <span class="formspan">
+    <mat-card-content class="example-container">
+
+      <form autocomplete="off" [formGroup]="subscriptionCatForm">
+
+
+        <!-- Name  -->
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="name" formControlName="name">
+        </mat-form-field>
+
+
+        <!-- Priority -->
+
+        <mat-form-field>
+          <mat-label>Priority</mat-label>
+          <input matInput placeholder="priority" type="number" formControlName="priority">
+        </mat-form-field>
+
+        <!-- Status  -->
+        <mat-label>Status</mat-label>
+        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
+
+        <!-- Button  -->
+        <button type="button" class="submitbtn" class="submitbtn" mat-raised-button
+          color="primary" (click)="onSubmit()">{{buttonText}}</button>
+        <button type="reset" class="submitbtn" class="submitbtn" mat-raised-button color="primary">RESET</button>
+      </form>
+
+    </mat-card-content>
+  </span>
+</mat-card>

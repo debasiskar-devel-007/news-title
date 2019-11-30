@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">{{ header_name }}</h2>
+  </mat-toolbar>
+  <span class="formspan">
+    <mat-card-content class="example-container">
+      <form autocomplete="off" [formGroup]="subGroupForm">
+        <!-- Name -->
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="fullname">
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone">
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <!-- Company -->
+        <mat-form-field>
+          <mat-label>Company</mat-label>
+          <input matInput formControlName="company">
+        </mat-form-field>
+
+        <!-- Group  -->
+        <mat-form-field>
+          <mat-label>Group</mat-label>
+          <select matNativeControl formControlName="group">
+               <option value=0>Remove Group</option>
+              <option value="{{  item._id }}" *ngFor="let item of group_array">{{ item.name  }}</option>
+            
+            </select>
+        </mat-form-field>
+
+
+
+        <button type="submit" class="submitbtn" class="submitbtn" mat-raised-button
+          color="primary"  (click)="onSubmit()">{{buttonText}}</button>
+        <button type="reset" class="submitbtn" class="submitbtn" mat-raised-button color="primary">RESET</button>
+
+
+
+
+      </form>
+      <!-- ---------------------------------------FORM ENDS HERE----------------------------- -->
+    </mat-card-content>
+  </span>
+</mat-card>

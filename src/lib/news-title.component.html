@@ -1,0 +1,53 @@
+
+<mat-card >
+
+        <span class="logowrapper" *ngIf="data.logoValue != ''" >
+             <img  [src]="data.logoValue">
+         </span>
+   
+       <h2 *ngIf="data.formTitleValue != ''"> {{data.formTitleValue}}</h2>
+   
+       <form [formGroup]="newsLatterForm" (ngSubmit)="newsLatterFormSubmit()" novalidate>
+           <mat-form-field>
+               <input matInput placeholder="Name " formControlName="fullname" (blur)="inputUntouched('fullname')">
+               <mat-error
+                           *ngIf="!newsLatterForm.controls['fullname'].valid && newsLatterForm.controls['fullname'].errors.required && newsLatterForm.controls['fullname'].touched">
+                           Name field can not be blank</mat-error>
+           </mat-form-field>
+   
+           <!--Phone field start here-->
+           <mat-form-field>
+               <input matInput placeholder="Phone " formControlName="phone" (blur)="inputUntouched('phone')">
+               <mat-error *ngIf="!newsLatterForm.controls['phone'].valid && newsLatterForm.controls['phone'].errors.required && newsLatterForm.controls['phone'].touched">
+                           Phone field can not be blank</mat-error>
+           </mat-form-field>
+   
+           <!-- Email field start here-->
+           <mat-form-field>
+               <input matInput placeholder="Email " formControlName="email" (blur)="inputUntouched('email')">
+               <mat-error
+                           *ngIf="!newsLatterForm.controls['email'].valid && !newsLatterForm.controls['email'].errors.required">
+                           Email is not valid</mat-error>
+                       <mat-error
+                           *ngIf="!newsLatterForm.controls['email'].valid && newsLatterForm.controls['email'].errors.required">
+                           Email field can not be blank</mat-error>
+           </mat-form-field>
+   
+           <!--Company field start here-->
+           <mat-form-field>
+               <input matInput placeholder="Company " formControlName="company" (blur)="inputUntouched('company')">
+               <mat-error
+                           *ngIf="!newsLatterForm.controls['company'].valid && newsLatterForm.controls['company'].errors.required && newsLatterForm.controls['company'].touched">
+                           Full Name field can not be blank</mat-error>
+           </mat-form-field>
+   
+   
+           <button mat-raised-button color="primary">Submit</button>
+           <!-- <button mat-raised-button color="primary"(click)="onNoClick()">No Thanks</button> -->
+           <i class="material-icons" (click)="onNoClick()">
+               clear
+               </i>
+   
+   
+       </form>
+   </mat-card>

@@ -1,0 +1,24 @@
+<mat-card *ngIf="loader==true">
+    <mat-spinner class="spinner"></mat-spinner>
+</mat-card>
+
+
+
+<!-- ------------------------lib listing being called------------------------ -->
+<mat-card *ngIf="loader==false">
+    <lib-listing class="formfilterdiv"
+        *ngIf="SubsCatListConfig.datasource !=null && SubsCatListConfig.datasource.length > 0"
+        [datasource]="SubsCatListConfig.datasource" [skip]="SubsCatListConfig.listArray_skip"
+        [modify_header_array]="SubsCatListConfig.listArray_modify_header" [sourcedata]="SubsCatListConfig.tableName"
+        [statusarr]="SubsCatListConfig.statusarr" [jwttoken]="SubsCatListConfig.jwtToken"
+        [apiurl]="SubsCatListConfig.apiUrl" [editroute]="SubsCatListConfig.editUrl"
+        [deleteendpoint]="SubsCatListConfig.deleteEndPoint"
+        [date_search_source]="SubsCatListConfig.view"
+       [date_search_endpoint]="SubsCatListConfig.listEndPoint"
+       [search_settings]="SubsCatListConfig.search_settings"
+       [detail_datatype]="SubsCatListConfig.pendingmodelapplicationarray_detail_datatype">
+    </lib-listing>
+<!-- ----------------------------------------------------------------------------->
+
+    <h2 *ngIf="SubsCatListConfig.datasource.length == 0">No record found.</h2>
+</mat-card>
